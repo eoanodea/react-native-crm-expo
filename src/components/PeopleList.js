@@ -14,14 +14,23 @@ const styles = StyleSheet.create({
 class PeopleList extends Component {
     render() {
         return(
-            <View>
-
+            <View styles={styles.container}>
+                <Flatlist
+                    data={this.props.people}
+                    renderItem={({item}) => <PeopleItem people={item} />}
+                />
             </View>
         )
     }
 }
 
-//Return a list of people from our redux state
+/**
+ * Return a list of people from our redux state
+ * 
+ * @param {*} state 
+ */
 const mapStateToProps = state => {
     return { people: state.people }
 }
+
+export default connect(mapStateToProps)(PeopleList)
