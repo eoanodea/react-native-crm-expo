@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { Icon } from 'react-native-vector-icons/EvilIcons'
+import * as actions from '../actions'
 
 const styles = StyleSheet.create({
     container: {
