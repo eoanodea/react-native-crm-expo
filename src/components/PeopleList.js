@@ -2,20 +2,26 @@ import React, { Component } from 'react'
 import {
     View,
     StyleSheet,
-    Flatlist
+    FlatList
 } from 'react-native'
 import { connect } from 'react-redux'
 import PeopleItem from './PeopleItem'
 
 const styles = StyleSheet.create({
-    //
+    container: {
+        flex: 1,
+        width: 353,
+        flexWrap: 'wrap',
+        paddingTop: 20,
+        paddingLeft: 20
+    }
 })
 
 class PeopleList extends Component {
     render() {
         return(
             <View styles={styles.container}>
-                <Flatlist
+                <FlatList
                     data={this.props.people}
                     renderItem={({item}) => <PeopleItem people={item} />}
                 />
