@@ -5,7 +5,7 @@ import {
     FlatList
 } from 'react-native'
 import { connect } from 'react-redux'
-import PeopleItem from './PeopleItem'
+import { Icon } from 'react-native-vector-icons/EvilIcons'
 
 const styles = StyleSheet.create({
     container: {
@@ -17,32 +17,19 @@ const styles = StyleSheet.create({
     }
 })
 
-class PeopleList extends Component {
+class AddPerson extends Component {
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Icon name={'user'} size={50} color={tintColor} />
+            <Icon name={'plus'} size={50} color={tintColor} />
         )
     }
-
     render() {
         return(
             <View styles={styles.container}>
-                <FlatList
-                    data={this.props.people}
-                    renderItem={({item}) => <PeopleItem people={item} />}
-                />
+                <Text>Add Person Screen</Text>
             </View>
         )
     }
 }
 
-/**
- * Return a list of people from our redux state
- * 
- * @param {*} state 
- */
-const mapStateToProps = state => {
-    return { people: state.people }
-}
-
-export default connect(mapStateToProps)(PeopleList)
+export default connect(null, actions)(AddPerson)
