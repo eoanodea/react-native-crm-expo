@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux'
 import CompanyItem from './CompanyItem'
 import { Icon } from 'react-native-vector-icons/EvilIcons'
+import * as actions from '../actions'
 
 const styles = StyleSheet.create({
     container: {
@@ -19,11 +20,7 @@ const styles = StyleSheet.create({
 })
 
 class CompanyList extends Component {
-    static navigationOptions = {
-        tabBarIcon: ({tintColor}) => (
-            <Icon name={'archive'} size={50} color={tintColor} />
-        )
-    }
+
     render() {
         return(
             <View styles={styles.container}>
