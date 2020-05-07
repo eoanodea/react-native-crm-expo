@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import PeopleItem from './PeopleItem'
+import PeopleDetail from './PeopleDetail'
 
 const styles = StyleSheet.create({
     container: {
@@ -19,13 +20,22 @@ const styles = StyleSheet.create({
 
 class PeopleList extends Component {
 
+    // renderInitialView() {
 
+    // }
     render() {
+
+        console.log('detail', this.props.detailView)
+        if(this.props.detailView) {
+            return <PeopleDetail person={this.props.people} />
+        }
+
         return(
             <View styles={styles.container}>
                 <FlatList
                     data={this.props.people}
-                    renderItem={({item, i}) => <PeopleItem key={i} people={item} />}
+                    renderItem={({item}) => <PeopleItem people={item} />}
+                    keyExtractor={(item, index) => index.toString()}
                 />
             </View>
         )
@@ -38,7 +48,10 @@ class PeopleList extends Component {
  * @param {*} state 
  */
 const mapStateToProps = state => {
-    return { people: state.people }
+    return { 
+        people: state.people,
+        detailView: state.detailView
+    }
 }
 
 export default connect(mapStateToProps)(PeopleList)

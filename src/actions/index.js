@@ -1,7 +1,7 @@
 export const selectPerson  = (peopleId) => {
     return {
         type: 'SELECTED_PERSON',
-        selectedId: peopleId
+        selectId: peopleId
     }
 }
 

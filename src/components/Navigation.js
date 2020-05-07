@@ -25,7 +25,6 @@ const tabs = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                
                 activeColor="red"
                 style={{
                     backgroundColor: '#26a69a'

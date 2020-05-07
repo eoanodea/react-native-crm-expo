@@ -3,7 +3,8 @@ import {
     View,
     StyleSheet,
     Text,
-    Image
+    Image,
+    TouchableWithoutFeedback
 } from 'react-native'
 import { connect } from 'react-redux'
 import { getTheme } from 'react-native-material-kit'
@@ -46,27 +47,20 @@ const PeopleItem = (props) => {
     const {people} = props
 
     return(
-        <View style={[theme.cardStyle, styles.card]}>
-            <Image source={require('../images/background.jpg')} style={[theme.cardImageStyle, styles.image]} />
-            <Icon 
-                name={'user'}
-                size={100}
-                style={styles.icon}
-            />
-            <Text style={[theme.cardTitleStyle, styles.title]}>{people.firstName} {people.lastName}</Text>
-            <Text style={[theme.cardTitleStyle, styles.company]}>{people.company}</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => props.selectPerson(people)}>
+            <View style={[theme.cardStyle, styles.card]}>
+                <Image source={require('../images/background.jpg')} style={[theme.cardImageStyle, styles.image]} />
+                <Icon 
+                    name={'user'}
+                    size={100}
+                    style={styles.icon}
+                />
+                <Text style={[theme.cardTitleStyle, styles.title]}>{people.firstName} {people.lastName}</Text>
+                <Text style={[theme.cardTitleStyle, styles.company]}>{people.company}</Text>
+            </View>
+        </TouchableWithoutFeedback>
     )
     
-}
-
-/**
- * Return a list of people from our redux state
- * 
- * @param {*} state 
- */
-const mapStateToProps = state => {
-    return { people: state.people }
 }
 
 export default connect(null, actions)(PeopleItem)
