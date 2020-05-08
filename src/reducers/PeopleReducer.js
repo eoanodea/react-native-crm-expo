@@ -1,13 +1,24 @@
-import people from './people.json';
-
 const initialState = {
-  people,
+  people: [],
   detailView: false,
-  personSelected: null
+  personSelected: null,
+  firstName: '', 
+  lastName: '', 
+  phone: '', 
+  email: '', 
+  company: '', 
+  project: '', 
+  notes: ''
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case 'INITIAL_FETCH': 
+      return {
+        ...state,
+        people: action.payload
+      }
+
     case 'SELECTED_PERSON':
       return {
         ...state,
@@ -29,7 +40,16 @@ export default (state = initialState, action) => {
     }
     
     case 'NEW_CONTACT':
-      return initialState
+      return {
+        ...state,
+        firstName: '', 
+        lastName: '', 
+        phone: '', 
+        email: '', 
+        company: '', 
+        project: '', 
+        notes: ''
+      }
     
     case 'ADD_PERSON':
       return {

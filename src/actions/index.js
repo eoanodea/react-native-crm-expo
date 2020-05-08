@@ -34,6 +34,19 @@ export const createNewContact = ({ firstName, lastName, phone, email, company, p
         .then(() => {
             dispatch({ type: 'NEW_CONTACT' })
         })
-        .catch(err => console.log('ERROR!', error))
+        .catch(err => console.log('ERROR add contact!', error))
+    }
+}
+
+export const loadInitialContacts = () => {
+    return (dispatch) => {
+        fetch('http://192.168.0.164:3000/contact', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then((data) => {
+            dispatch({ type: 'INITIAL_FETCH', payload: data })
+        })
+        .catch(err => console.log('Error fetch contacts', err))
     }
 }

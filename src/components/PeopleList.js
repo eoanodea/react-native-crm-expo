@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux'
 import PeopleItem from './PeopleItem'
 import PeopleDetail from './PeopleDetail'
+import { loadInitialContacts } from '../actions'
 
 const styles = StyleSheet.create({
     container: {
@@ -19,6 +20,10 @@ const styles = StyleSheet.create({
 })
 
 class PeopleList extends Component {
+
+    componentDidMount() {
+        this.props.loadInitialContacts()
+    }
 
     render() {
         if(this.props.detailView) return <PeopleDetail person={this.props.people} />
@@ -47,4 +52,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PeopleList)
+export default connect(mapStateToProps, { loadInitialContacts })(PeopleList)
