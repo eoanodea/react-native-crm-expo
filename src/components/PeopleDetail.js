@@ -19,7 +19,7 @@ import { connect } from 'react-redux'
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'red'
+        marginTop: 50
     },  
     card: {
         marginTop: 10,
@@ -83,7 +83,7 @@ class PeopleDetail extends Component {
     render() {
         
         return(
-            <View styles={styles.container}>
+            <View style={styles.container}>
                <ScrollView showsVerticalScrollIndicator={false}>
                    <Image
                         source={require('../images/background.jpg')}
@@ -110,24 +110,24 @@ class PeopleDetail extends Component {
                         <Text style={theme.cardContentStyle}>{this.props.person.notes}</Text>
                     </View>
                     <View>
-                        {/* <TouchableOpacity>
+                        <TouchableOpacity>
                             <Image
-                                source={require('../images/call@2x.png.png')}
+                                source={require("../images/call2x.png")}
                                 style={styles.actionImage}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
-                                source={require('../images/email@2x.png.png')}
+                                source={require("../images/email2x.png")}
                                 style={styles.actionImage}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
-                                source={require('../images/sms@2x.png.png')}
+                                source={require("../images/sms2x.png")}
                                 style={styles.actionImage}
                             />
-                        </TouchableOpacity> */}
+                        </TouchableOpacity>
 
                         <View style={styles.actionArea}>
                             <Text>Call</Text>

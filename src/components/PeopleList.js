@@ -20,15 +20,8 @@ const styles = StyleSheet.create({
 
 class PeopleList extends Component {
 
-    // renderInitialView() {
-
-    // }
     render() {
-
-        console.log('detail', this.props.detailView)
-        if(this.props.detailView) {
-            return <PeopleDetail person={this.props.people} />
-        }
+        if(this.props.detailView) return <PeopleDetail person={this.props.people} />
 
         return(
             <View styles={styles.container}>

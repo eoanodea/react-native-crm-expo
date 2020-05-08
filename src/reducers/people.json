@@ -3,6 +3,7 @@
     "firstName": "Eoan",
     "lastName": "Johlast",
     "phone": "086 346 2222",
+    "email": "eo@eo.com",
     "company":"good compent",
     "project": "good project",
     "notes": "notes"
@@ -13,6 +14,7 @@
     "lastName": "Kiwi",
     "phone": "086 346 2222",
     "company":"uber",
+    "email": "eo@eo.com",
     "project": "good project",
     "notes": "notes"
 },
@@ -21,6 +23,7 @@
     "firstName": "Ulty",
     "lastName": "MacD",
     "phone": "086 346 2222",
+    "email": "eo@eo.com",
     "company":"iadt",
     "project": "good project",
     "notes": "notes"
@@ -29,6 +32,7 @@
     "id": 4,
     "firstName": "Rosalean",
     "lastName": "Exper",
+    "email": "eo@eo.com",
     "phone": "086 346 2222",
     "company":"locker room",
     "project": "good project",
