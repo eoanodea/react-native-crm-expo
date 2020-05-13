@@ -5,10 +5,8 @@ import {
     Text,
     Image
 } from 'react-native'
-import { connect } from 'react-redux'
 import { getTheme } from 'react-native-material-kit'
-import Icon from 'react-native-vector-icons/EvilIcons'
-import * as actions from '../actions'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const theme = getTheme()
 
@@ -43,30 +41,24 @@ const styles = StyleSheet.create({
 })
 
 const CompanyItem = (props) => {
-    const {Company} = props
+    const {companies} = props
 
     return(
         <View style={[theme.cardStyle, styles.card]}>
             <Image source={require('../images/background.jpg')} style={[theme.cardImageStyle, styles.image]} />
             <Icon 
-                name={'user'}
+                name={'business'}
                 size={100}
                 style={styles.icon}
             />
-            <Text style={[theme.cardTitleStyle, styles.title]}>{Company.firstName} {Company.lastName}</Text>
-            <Text style={[theme.cardTitleStyle, styles.company]}>{Company.company}</Text>
+            <Text style={[theme.cardTitleStyle, styles.title]}>{companies.company}</Text>
+            {props.companies.names.map((dat) => {
+                return <Text style={[theme.cardTitleStyle, styles.company]}>{dat.firstName} {dat.lastName}</Text>
+            })}
+            
         </View>
     )
     
 }
 
-/**
- * Return a list of Company from our redux state
- * 
- * @param {*} state 
- */
-const mapStateToProps = state => {
-    return { Company: state.Company }
-}
-
-export default connect(null, actions)(CompanyItem)
+export default CompanyItem
